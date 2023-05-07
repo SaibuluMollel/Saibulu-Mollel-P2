@@ -1,12 +1,22 @@
-var d = document.getElementById("Destiny");  
-d.innerHTML = 100; 
-var W = document.getElementById("War"); 
-W.innerHTML = "free"; 
-var M = document.getElementById("Monster")
-M.innerHTML = 40; 
-var Wi = document.getElementById("Wild") 
-Wi.innerHTML = 70;
-var F = document.getElementById("Final") 
-F.innerHTML = 70;
-var G = document.getElementById("Guild") 
-G.innerHTML = 100;
+const btn = document.querySelector('button')
+const inputs = document.querySelector('form')
+btn.addEventListener('click', () => {
+
+    const name = (inputs.elements["name"].value).trim()
+    const email = (inputs.elements["email"].value).trim()
+    const msg = (inputs.elements["message"].value.trim())
+    const phone = (inputs.elements["phone"].value).trim()
+    if (!name.length > 0 || !email.length > 0 || !msg.length > 0 || !phone.length > 0) {
+        alert("All fields are mandatory")
+        return
+    }
+    Email.send({
+        Host: ".............",
+        Username: "...............",
+        Password: "..............",
+        To: "...........",
+        From: email,
+        Subject: "Contact Us Query By the Customer",
+        Body: msg + "<br>" + name + "<br>" + phone
+    }).then(msg => alert("The email successfully sent"))
+})
